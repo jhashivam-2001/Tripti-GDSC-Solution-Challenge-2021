@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Members.css">
+    <link rel="icon" href="image/ZeroHungerlogo.png" type="image/icon type">
+    <title>Our Team</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="image/ZeroHungerlogo.png" alt="Logo Image">
+        </div>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="Members.html">Our Team</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="Login.html"><button id="loginbtn" class="login-button" href="#">Login</button></a></li>
+            <li><button id="logoutbtn" class="login-button" href="#">Logout</button></li>
+            <li><a href="Login.html#jump"><button id="joinbtn" class="join-button" href="#">Join</button></a></li>
+        </ul>
+    </nav>
+    <script src="app.js"></script>
+    <div class="container">
+    <div class="card">
+        <div class="imgbg">
+            <img src="image/vikas_360x600.jpg" alt="Vikas">
+        </div>
+        <div class="contentbox">
+            <div class="content">
+                <h3>Vikas Kumar Gond</h3>
+                <p>Front End Developer and UI/UX with HTML CSS and JS.I am primilarly working on the structure and the functionality of the webiste,for the User interface and enhancing the user experience and to increase the functionaliy and use cases of the wesite.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgbg">
+            <img src="image/shivam_360x600.jpeg" alt="Shivam">
+        </div>
+        <div class="contentbox">
+            <div class="content">
+                <h3>Shivam Jha</h3>
+                <p>AI/ML implementation and Data management using Fire Base.I'am working on implementing the AI/ML models on the project. Also to integrate the Firebase Cloud Functions and Express.js server.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgbg">
+            <img src="image/shobhit_360x600.jpg" alt="Shobit">
+        </div>
+        <div class="contentbox">
+            <div class="content">
+                <h3>Shobit Kaothalkar</h3>
+                <p>Database Management and Backend.I'm working on the Designing the Backend and to have the proper data managemnt for the effienct and loading.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgbg">
+            <img src="image/Manvendra_360x600.jpeg" alt="Manvendra">
+        </div>
+        <div class="contentbox">
+            <div class="content">
+                <h3>Manvendra Pratap Singh</h3>
+                <p>Firebase Backend.I'm also working on the backend and incrasing the functionality and efficieny of the webpages for the smother experience.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+        <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+        <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+        <script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+        <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+        <script src="/__/firebase/8.3.1/firebase-performance.js"></script>
+   
+    <script>
+        //Your web app's Firebase configuration
+        var firebaseConfig = {
+        apiKey: "AIzaSyAjBRZZGhK-1OiGmIJ0pCb_cX8iFySBz6I",
+        authDomain: "tripti-b31d3.firebaseapp.com",
+        databaseURL: "https://tripti-b31d3-default-rtdb.firebaseio.com",
+        projectId: "tripti-b31d3",
+        storageBucket: "tripti-b31d3.appspot.com",
+        messagingSenderId: "334800640551",
+        appId: "1:334800640551:web:e9087d5b33d63ecf244c02"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+       firebase.auth().onAuthStateChanged(user => {
+        if(user){console.log(user['uid']);$("#loginbtn").hide();$("#joinbtn").hide();$("#logoutbtn").show();}
+        else{console.log("Logged out");$("#loginbtn").show();$("#joinbtn").show();$("#logoutbtn").hide();}
+        });
+       
+        const logout = document.querySelector('#logoutbtn');
+        logout.addEventListener('click', (e) => {
+       e.preventDefault();
+       firebase.auth().signOut();
+      });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CreatePoint.css">
+    <link rel="icon" href="image/ZeroHungerlogo.png" type="image/icon type">
+    <title>Create Point</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text">
+            Food Donation Point Form</div>
+        <form action="#">
+            <div class="form-row">
+                <div class="input-data">
+                    <input id="n" type="text" required>
+                    <div class="underline"></div>
+                    <label for="n">Name</label>
+                </div>
+                <div class="input-data">
+                    <input id="num" type="text" required>
+                    <div class="underline"></div>
+                    <label for="num">No. of Persons Willng To Donate</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input id="mail" type="text" required>
+                    <div class="underline"></div>
+                    <label for="mail">Email Address</label>
+                </div>
+                <div class="input-data">
+                    <input id="add" type="text" required>
+                    <div class="underline">
+                    </div>
+                    <label for="add">Address</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data textarea">
+                    <changeit rows="8" cols="80" required></changeit>
+                    <br />
+                    <div class="underline"></div>
+                    <div class="form-row submit-btn">
+                        <div class="input-data">
+                            <div class="inner"></div>
+                            <input id="create" type="submit" value="Create">Create
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-performance.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+         apiKey: "AIzaSyAjBRZZGhK-1OiGmIJ0pCb_cX8iFySBz6I",
+         authDomain: "tripti-b31d3.firebaseapp.com",
+         databaseURL: "https://tripti-b31d3-default-rtdb.firebaseio.com",
+         projectId: "tripti-b31d3",
+         storageBucket: "tripti-b31d3.appspot.com",
+         messagingSenderId: "334800640551",
+         appId: "1:334800640551:web:e9087d5b33d63ecf244c02"
+         };
+         // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+
+       firebase.auth().onAuthStateChanged(user => {
+       if(user){console.log(user['uid']);}
+       else{console.log("Logged out");}
+       });
+       
+       function isUserSignedIn() {
+        return !!firebase.auth().currentUser;
+        }
+        $("#create").click(function () {
+            var name=document.getElementById('n').value;
+            var number=document.getElementById('num').value;
+            var email=document.getElementById('mail').value;
+            var address=document.getElementById('add').value;
+            if(firebase.auth().currentUser != null){
+            var userId=firebase.auth().currentUser.uid;
+            return firebase.firestore().collection('points').add({
+            UserId: userId,
+            Name: name,
+            Email: email,
+            Persons_Willing: number,
+            Address: address,
+            Timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).catch(function(error){
+                var errormsg=error.message;
+                alert(errormsg)
+            });
+           }
+           else{alert("Sign in First !");}
+        }); 
+    </script>
+</body>
+
+</html>

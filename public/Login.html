@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Login.css">
+  <link rel="icon" href="image/ZeroHungerlogo.png" type="image/icon type">
+  <title>Login/SignUp Form</title>
+  
+</head>
+<body>
+  <nav>
+    <div class="logo">
+        <img src="image/ZeroHungerlogo.png" alt="Logo Image">
+    </div>
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="Members.html">Our Team</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+        <li><a href="Login.html"><button id="loginbtn" class="login-button" href="#">Login</button></a></li>
+        <li><button id="logoutbtn" class="login-button" href="#" >Logout</button></li>
+        <li><a href="Login.html"><button id="joinbtn" class="join-button" href="#">Join</button></a>></li>
+    </ul>
+</nav>
+<script src="app.js"></script>
+  <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Sign Up</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+          <div class="group">
+            <label for="email2" class="label">Email</label>
+            <input id="email2" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass2" class="label">Password</label>
+            <input id="pass2" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <input id="check" type="checkbox" class="check" checked>
+            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+          </div>
+          <div class="group">
+            <button onclick="LoginUser()">Sign In</button>
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a href="#forgot">Forgot Password?</a>
+          </div>
+        </div>
+        <div id="jump" class="sign-up-htm">
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input id="user" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="pass1" class="label">Password</label>
+            <input id="pass1" type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <label for="email" class="label">Email Address</label>
+            <input id="email" type="text" class="input">
+          </div>
+          <div class="group">
+            <label for="add" class="label">Permanent Address</label>
+            <input id="add" type="text" class="input">
+          </div>
+          <div class="group">
+            <button onclick="RegisterUser()">Sign Up</button>
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <label for="tab-1">Already Member?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>&copy;This website is made for the Solution Challenge by Google under the theme Zero Hunger</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.3.1/firebase-performance.js"></script>
+    <script>
+       // Your web app's Firebase configuration
+       var firebaseConfig = {
+        apiKey: "AIzaSyAjBRZZGhK-1OiGmIJ0pCb_cX8iFySBz6I",
+        authDomain: "tripti-b31d3.firebaseapp.com",
+        databaseURL: "https://tripti-b31d3-default-rtdb.firebaseio.com",
+        projectId: "tripti-b31d3",
+        storageBucket: "tripti-b31d3.appspot.com",
+        messagingSenderId: "334800640551",
+        appId: "1:334800640551:web:e9087d5b33d63ecf244c02"
+        };
+        // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      firebase.auth().onAuthStateChanged(user => {
+       if(user){console.log(user['uid']);$("#loginbtn").hide();$("#joinbtn").hide();$("#logoutbtn").show();}
+       else{console.log("Logged out");$("#loginbtn").show();$("#joinbtn").show();$("#logoutbtn").hide();}
+      });
+
+      function RegisterUser() {
+      var email=document.getElementById('email').value;
+      var password=document.getElementById('pass1').value;
+      var uname=document.getElementById('user').value;
+      var address=document.getElementById('add').value;
+      firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+        alert('User Registered sucessfully');
+       var id=firebase.auth().currentUser.uid;
+       console.log(id);
+       firebase.database().ref('Users/'+id).set({
+        UserName:uname,
+        Address:address
+       });
+      }).catch(function(error){
+   
+       var errorcode=error.code;
+       var errormsg=error.message;
+       console.log(errorcode);
+       alert(errormsg);
+   
+      });
+     }
+      
+     
+     function LoginUser(){
+      var email=document.getElementById('email2').value;
+      var password=document.getElementById('pass2').value;
+      firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
+   
+       alert("Logged in Sucessfully !")
+       var id=firebase.auth().currentUser.uid;
+       localStorage.setItem('id',id);
+       
+      }).catch(function(error){
+   
+       var errormsg=error.code;
+       alert(errormsg);
+   
+      });
+     }
+
+     const logout = document.querySelector('#logoutbtn');
+     logout.addEventListener('click', (e) => {
+       e.preventDefault();
+       firebase.auth().signOut();
+      });
+
+
+  </script>
+ 
+</body>
+</html>
