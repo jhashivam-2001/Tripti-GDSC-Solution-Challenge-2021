@@ -14,6 +14,7 @@
     <div class="container">
         <div class="text">
             Food Donation Point Form</div>
+        <div id="map"></div>
         <form action="#">
             <div class="form-row">
                 <div class="input-data">
@@ -106,7 +107,39 @@
            }
            else{alert("Sign in First !");}
         }); 
+        function initMap(){
+            var l1={lat:25.620861,lng:85.084023};
+            var l2={lat:25.594950,lng:85.207901};
+            var l3={lat:25.568130,lng:85.142043};
+            var l4={lat:25.577241,lng:85.037959};
+            var l5={lat:25.581884,lng:85.245905};
+            var map = new google.maps.Map(document.getElementById("map"),{
+                zoom:4,
+                center:l1
+            });
+            var m1= new google.maps.Marker({
+                position: l1,
+                map: map
+            });
+            var m2= new google.maps.Marker({
+                position: l2,
+                map: map
+            });
+            var m3= new google.maps.Marker({
+                position: l3,
+                map: map
+            });
+            var m4= new google.maps.Marker({
+                position: l4,
+                map: map
+            });
+            var m5= new google.maps.Marker({
+                position: l5,
+                map: map
+            });
+        }
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGZ_nq_QATCIFW0pBs0UBUV9XTBADhTmo&callback=initMap"></script>
 </body>
 
 </html>
