@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="#D1A4A4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/ZeroHungerLogo"
+            android:layout_width="160dp"
+            android:layout_height="140dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/zerohungerlogo" />
+
+        <Button
+            android:id="@+id/ABOUT"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:text="ABOUT"
+            android:textColor="#000000"
+            app:backgroundTint="#D1A4A4"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <Button
+            android:id="@+id/CONTACTUS"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTACT US"
+            android:textColor="#000000"
+            app:backgroundTint="#D1A4A4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ABOUT"
+            app:layout_constraintTop_toBottomOf="@+id/ABOUT" />
+
+        <TextView
+            android:id="@+id/AIM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#1FD66C"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="OUR AIM"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/OURMAINTEXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="To eradicate hunger from this planet by minimising wastage of food. In India one third of the population suffers from the hunger.The world food production can feed almost 10 billion people but due to food wastage, millions die of hunger every year. "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AIM" />
+
+        <Button
+            android:id="@+id/DONATEFOOD"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-black"
+            android:text="DONATE FOOD"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#0B31EF"
+            android:textSize="30sp"
+            app:backgroundTint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OURMAINTEXT" />
+
+        <Button
+            android:id="@+id/DONATEMONEY"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="DONATE MONEY"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#0B31EF"
+            android:textSize="30sp"
+            app:backgroundTint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DONATEFOOD" />
+
+        <ImageView
+            android:id="@+id/NOHUNGERLOGO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:scaleType="fitXY"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DONATEMONEY"
+            app:srcCompat="@drawable/team_no_hunger"
+            tools:srcCompat="@drawable/team_no_hunger" />
+
+        <Button
+            android:id="@+id/LOG"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:textColor="#000000"
+            app:backgroundTint="#D1A4A4"
+            app:elevation="0dp"
+            app:iconPadding="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ABOUT"
+            app:layout_constraintStart_toStartOf="@+id/ABOUT" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

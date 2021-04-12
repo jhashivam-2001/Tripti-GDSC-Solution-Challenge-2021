@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ABOUT">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#433939"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#E1B0B0"
+        android:text="HOME"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        app:backgroundTint="#9CE3A5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/HUNGERLOGO"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="#9CE3A5"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/no_hunger" />
+
+    <TextView
+        android:id="@+id/WHOAREWE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-black"
+        android:text="WHO ARE WE ?"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/WHOAREWETEXT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingLeft="10dp"
+        android:text="@string/WHOAREWETEXT"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/WHOAREWE"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/HOWITWORKS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-black"
+        android:text="HOW OUR SYSTEM WORKS ?"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/WHOAREWE"
+        app:layout_constraintTop_toBottomOf="@+id/WHOAREWETEXT" />
+
+    <TextView
+        android:id="@+id/HOWOURSYSTEMWORKSTEXT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingLeft="10dp"
+        android:text="It is very simple to become a Hunger Warrior with us. Your very willingness is enough for us. To create “food points” near you, you need to fill a basic form on our app with the eligibility that from your locality at least 5 people are willing to donate food (if not regular then very often at least). You will be registered on our app and here you'll get daily update of number of food recipients and needy ones near you to feed with the help of our very own AI classification model to enhance the accuracy of the upcoming demand for the food near you and able to predict the need of creating another food point at specific location with the help of google maps and location API's. Then also we enabled the method of donating the money to help in buying the goods like-Refrigerator, Disposable plates, water outlets and much more in a very transparent mode to ensure that your money is getting invested in the right place. In order to optimize the expenses, we'll create a polling system based on different locations (4 locations) of the greater need based on the Data and inputs that we are getting through various sources and the donated money well be spent in the priority order based on the polling. You can also register as an independent active volunteer where you don’t necessarily need 5+ people to donate but willing to provide 4 hours/week for serving people at food points.  "
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/HOWITWORKS"
+        tools:layout_editor_absoluteX="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
