@@ -22,7 +22,8 @@ Fresh food that would have been wasted goes to people and leftover food (but sti
  
 
 ## Our project is deployed at https://tripti-b31d3.web.app/
-## Demo Video - https://youtu.be/r3ttqJqfDw8 
+## Demo Website Video - https://youtu.be/r3ttqJqfDw8
+## Demo Android App Video - https://drive.google.com/file/d/1_7RdZxnx3CYdwYn_o9mC89POB4k1xP9Y/view?usp=sharing
 
  
 
