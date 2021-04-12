@@ -19,6 +19,8 @@ Fresh food that would have been wasted goes to people and leftover food (but sti
 
 4. JavaScript – For user-interaction and scripting 
 
+5. Kotlin - For android app 
+
  
 
 ## Our project is deployed at https://tripti-b31d3.web.app/
